@@ -1,12 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Example from './components/Example';
+import Navbar from './components/Navbar';
+import  Homepage  from './components/Homepage';
+import PostPage from './components/PostPage';
+import Feedback from './components/Feedback';
+
 
 function App() {
   return (
     <div className="App">
-      <Example/>
+     <Navbar/>
+     <Homepage/>
+     <PostPage/>
+     <Feedback/>
     </div>
   );
 }
