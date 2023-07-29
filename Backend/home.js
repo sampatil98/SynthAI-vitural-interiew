@@ -3,15 +3,25 @@ const btn=document.getElementById("btn");
 const output=document.getElementById("container");
 const start=document.getElementById("start");
 const input=document.getElementById("inputtext");
+
+
 btn.addEventListener("click",(e)=>{
     e.preventDefault();
 
-    // output.innerHTML=null;
     let question=localStorage.getItem("ques");
     const obj={
         prompt:question,
         studentAnswer:form.inputtext.value
     }
+    let div1=document.createElement("div");
+        div1.setAttribute("class","each-div-ans");
+
+        let ans1=document.createElement("h6");
+        ans1.setAttribute("class","ans");
+        ans1.innerText=obj.studentAnswer;
+        
+        div1.append(ans1);
+        output.append(div1);
     document.dataform.reset();
     fetch("http://localhost:8080/submit-ans",{
         method:"POST",
@@ -68,9 +78,9 @@ function getQquestion(){
 // speact to text
 
 // script.js
-const speechInput = document.getElementById('inputtext');
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
+const speechInput = document.getElementById('inputtext'); // input box where we want to show text
+const startButton = document.getElementById('startButton'); // buttom to start voice command
+const stopButton = document.getElementById('stopButton'); // button to stop voice command
 
 let recognition;
 

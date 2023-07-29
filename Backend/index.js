@@ -19,7 +19,7 @@ app.post("/submit-ans",async (req,res)=>{
     } catch (error) {
         res.status(401).send({
             isError:true,
-            error:"internal server error"
+            error:error
         });
     }
 });
@@ -83,7 +83,26 @@ app.listen(8080,async()=>{
 
 
 
+// trail new route
 
+app.get('/study-getQuestion', async (req, res) => {
+  try {
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `give 1 question with proper answer with explaination on node.js`,
+      max_tokens: 3000
+    });
+    // console.log(response.data);
+    const question = response.data.choices[0].text.trim();
+    let array=question.trim().split("\n");
+    let Q=array[0];
+    let A=array.slice(1).join("");
+    res.json({"question":Q,"answer":A});
+  } catch (error) {
+    console.error('Error fetching question:', error.message);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 
 

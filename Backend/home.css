@@ -59,9 +59,10 @@
 }
 .each-div{
     background-color:whitesmoke;
-    text-align: center;
-    padding: 10px;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    margin-bottom: 10px;
+}
+.each-div-ans{
+    background-color:rgb(191, 230, 244);
     margin-bottom: 10px;
 }
 #container{
