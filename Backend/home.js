@@ -31,8 +31,21 @@ end.addEventListener("click",()=>{
     })
     .then((res)=>res.json())
     .then((data)=>{
-      output.innerText=`You have Completed Your Interview \n Total Question Attempted ${score.count} \n Your Average Score is:- ${avg.toFixed(2)} \n FEEDBACK:-\n
-      ${data.question} `
+      let container=document.createElement("div");
+      let h2=document.createElement("h2");
+      h2.innerText=`You have Completed Your Interview \n Total Question Attempted ${score.count} \n Your Average Score is:- ${avg.toFixed(2)} \n FEEDBACK:-\n
+      ${data.question} \n `
+  
+      let btn=document.createElement("button");
+      btn.setAttribute("class","learn_btn");
+      btn.innerText="Learn Here"
+      
+      container.append(h2,btn);
+      output.innerText="";
+      output.append(container)
+      btn.addEventListener("click",()=>{
+        window.location.href="./learn.html"
+      })
     })
 
     sum=0;
@@ -50,6 +63,15 @@ btn.addEventListener("click",(e)=>{
         prompt:question,
         studentAnswer:form.inputtext.value
     }
+    let div=document.createElement("div");
+    div.setAttribute("class","each-div");
+
+    let ans=document.createElement("h6");
+    ans.setAttribute("class","ans");
+    ans.innerText=obj.studentAnswer;
+    
+    div.append(ans);
+    output.append(div);
     document.dataform.reset();
     fetch("http://localhost:8080/submit-ans",{
         method:"POST",
