@@ -1,16 +1,19 @@
 const form=document.getElementById("form");
 const btn=document.getElementById("btn");
-const output=document.getElementById("output");
-
-
+const output=document.getElementById("container");
+const start=document.getElementById("start");
+const input=document.getElementById("inputtext");
 btn.addEventListener("click",(e)=>{
-
     e.preventDefault();
+
     // output.innerHTML=null;
+    let question=localStorage.getItem("ques");
     const obj={
-        "prompt":form.prompt.value
+        prompt:question,
+        studentAnswer:form.inputtext.value
     }
-    fetch("http://localhost:8080/",{
+    document.dataform.reset();
+    fetch("http://localhost:8080/submit-ans",{
         method:"POST",
         headers:{
             "content-type":"application/json"
@@ -21,10 +24,87 @@ btn.addEventListener("click",(e)=>{
         return res.json();
     })
     .then((data)=>{
-        let h1=document.createElement("p");
-        h1.innerText=obj.prompt;
-        let h3=document.createElement("h6");
-        h3.innerText=data.data
-        output.append(h1,h3);
+        let div=document.createElement("div");
+        div.setAttribute("class","each-div");
+
+        let ans=document.createElement("h6");
+        ans.setAttribute("class","ans");
+        ans.innerText=data.data;
+        
+        div.append(ans);
+        output.append(div);
+        getQquestion();
     })
-})
+});
+
+start.addEventListener("click",()=>{
+    getQquestion();
+});
+
+function getQquestion(){
+    fetch("http://localhost:8080/getQuestion")
+    .then((res)=>{
+        return res.json();
+    })
+    .then((data)=>{
+        // let question=JSON.stringify(data);
+        // console.log(question);
+        localStorage.setItem("ques",data.question);
+       let div=document.createElement("div");
+        div.setAttribute("class","each-div");
+        let image=document.createElement("img");
+        image.setAttribute("class","logo");
+        image.src="https://looka.com/s/139260762"
+        let q=document.createElement("p");
+        q.setAttribute("class","question");
+        q.innerText=data.question;
+
+        div.append(q);
+        output.append(div);
+       
+    })
+}
+
+// speact to text
+
+// script.js
+const speechInput = document.getElementById('inputtext');
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+
+let recognition;
+
+if ('webkitSpeechRecognition' in window) {
+  // Create the speech recognition object
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+
+  // Handle speech recognition result
+  recognition.onresult = (event) => {
+    const transcript = event.results[event.results.length - 1][0].transcript;
+    speechInput.value = transcript;
+  };
+
+  // Handle speech recognition error
+  recognition.onerror = (event) => {
+    console.error('Speech recognition error:', event.error);
+  };
+} else {
+  console.error('Speech recognition is not supported in this browser.');
+}
+
+startButton.addEventListener('click', () => {
+  if (recognition) {
+    recognition.start();
+    startButton.disabled = true;
+    stopButton.disabled = false;
+  }
+});
+
+stopButton.addEventListener('click', () => {
+  if (recognition) {
+    recognition.stop();
+    startButton.disabled = false;
+    stopButton.disabled = true;
+  }
+});

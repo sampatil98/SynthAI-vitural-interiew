@@ -1,0 +1,75 @@
+#main{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+.question{
+    color: green;
+    font-size: 21px;
+}
+.ans{
+    color: black;
+    font-size: 18px;
+}
+.abc{
+    color: gray;
+}
+#button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+}
+#start{
+    padding: 10px;
+    border: none;
+    background-color: rgb(42, 248, 42);
+    border-radius: 5px;
+}
+#end{
+    padding: 10px;
+    border: none;
+    background-color:rgb(249, 71, 71);
+    border-radius: 5px;
+}
+#inputtext{
+    width: 50%;
+    height: 40px;
+    border: 0pc;
+}
+#btn{
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(39, 98, 78);
+    border: none;
+    border-radius: 10px;
+}
+#form{
+    margin-top: 20px;
+    border: 1px solid rgb(89, 133, 89);
+    width: 60%;
+    border-radius: 15px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.each-div{
+    background-color:whitesmoke;
+    text-align: center;
+    padding: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    margin-bottom: 10px;
+}
+#container{
+    margin-top: 30px;
+    overflow: scroll;
+    overflow-x:hidden;
+    overflow-y:auto;
+    height: 500px;
+    margin: auto;
+    border: 0.5px solid gray;
+}
