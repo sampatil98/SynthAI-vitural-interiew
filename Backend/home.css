@@ -81,4 +81,18 @@
     border: 0.5px solid gray;
 
 }
-
+.learn_btn, #nextBtn{
+ 
+    padding: 10px;
+    background-color: rgb(39, 87, 98);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+}
+#question{
+    color: orangered;
+}
+#ans{
+    color: rgb(57, 136, 221);
+    font-size: larger;
+}
