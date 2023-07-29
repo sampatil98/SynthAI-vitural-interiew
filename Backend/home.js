@@ -4,11 +4,14 @@ const form=document.getElementById("form");
 const btn=document.getElementById("btn");
 const output=document.getElementById("container");
 const start=document.getElementById("start");
+
 const end=document.getElementById("end")
+
 const input=document.getElementById("inputtext");
 
 let count=0;
 let sum=0
+
 
 
 
@@ -43,11 +46,27 @@ btn.addEventListener("click",(e)=>{
     e.preventDefault();
 
     // output.innerHTML=null;
+
+btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+
+
     let question=localStorage.getItem("ques");
     const obj={
         prompt:question,
         studentAnswer:form.inputtext.value
     }
+
+    let div1=document.createElement("div");
+        div1.setAttribute("class","each-div-ans");
+
+        let ans1=document.createElement("h6");
+        ans1.setAttribute("class","ans");
+        ans1.innerText=obj.studentAnswer;
+        
+        div1.append(ans1);
+        output.append(div1);
+
     document.dataform.reset();
     fetch("http://localhost:8080/submit-ans",{
         method:"POST",
@@ -70,6 +89,7 @@ btn.addEventListener("click",(e)=>{
         div.append(ans);
         output.append(div);
         getQquestion();
+
         let regex=/Score: (\d+)\/10/;
         let feedbackScore=data.data.match(regex);
         if (feedbackScore) {
@@ -115,14 +135,45 @@ function getQquestion(){
         output.append(div);
        
     })
+});
+
+start.addEventListener("click",()=>{
+    getQquestion();
+});
+
+function getQquestion(){
+    fetch("http://localhost:8080/getQuestion")
+    .then((res)=>{
+        return res.json();
+    })
+    .then((data)=>{
+        // let question=JSON.stringify(data);
+        // console.log(question);
+        localStorage.setItem("ques",data.question);
+       let div=document.createElement("div");
+        div.setAttribute("class","each-div");
+        let image=document.createElement("img");
+        image.setAttribute("class","logo");
+        image.src="https://looka.com/s/139260762"
+        let q=document.createElement("p");
+        q.setAttribute("class","question");
+        q.innerText=data.question;
+
+        div.append(q);
+        output.append(div);
+       
+    })
+
 }
 
 // speact to text
 
 // script.js
-const speechInput = document.getElementById('inputtext');
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
+
+const speechInput = document.getElementById('inputtext'); // input box where we want to show text
+const startButton = document.getElementById('startButton'); // buttom to start voice command
+const stopButton = document.getElementById('stopButton'); // button to stop voice command
+
 
 let recognition;
 
@@ -159,4 +210,6 @@ stopButton.addEventListener('click', () => {
     startButton.disabled = false;
     stopButton.disabled = true;
   }
+
 });
+
