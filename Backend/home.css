@@ -36,7 +36,11 @@
 }
 #inputtext{
     width: 50%;
-    height: 40px;
+
+    border: solid red;
+    height: 90px;
+
+
     border: 0pc;
 }
 #btn{
@@ -59,10 +63,12 @@
 }
 .each-div{
     background-color:whitesmoke;
+
     margin-bottom: 10px;
 }
 .each-div-ans{
     background-color:rgb(191, 230, 244);
+
     margin-bottom: 10px;
 }
 #container{
@@ -73,4 +79,6 @@
     height: 500px;
     margin: auto;
     border: 0.5px solid gray;
+
 }
+

@@ -1,10 +1,17 @@
 const express=require("express");
 const {openai}=require("./config")
+
+const {qnaRoute}=require("./routes/qnaRoute")
+const {connection}= require("./db")
+
 const cors = require('cors');
+
 const app=express();
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/qna",qnaRoute)
 
 
 app.post("/submit-ans",async (req,res)=>{
@@ -40,6 +47,15 @@ app.get('/getQuestion', async (req, res) => {
     }
   });
 
+
+  app.post('/feed-back', async (req, res) => {
+    try {
+      const {avgScore}=req.body;
+
+      const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: ` In the interview interviewer give score ${avgScore} out of 10 to the candidate Now interviewer want to gave feedback to the candidate so please generate feedback`,
+
   app.get('/feed-back', async (req, res) => {
     const data=[{
       question:"What is the purpose of using the EventEmitter class in Node.js?",
@@ -64,6 +80,7 @@ app.get('/getQuestion', async (req, res) => {
       const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `${text} this is a data wich contains question and the candidatesAnswer analise these data and give feed back about how correctly answers are given by candidate and give feed back for improvement and also give score besed on candidates performance on the scale of 10`,
+
         max_tokens: 3000
       });
   
@@ -80,7 +97,9 @@ async function callChatGPT(text,studentAnswer){
     try {
         const completion = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: `Question:${text}\nStudent Answer: ${studentAnswer}\n compare studentAnswer with actual answer and give proper feedback as Ai responce: \n in next line give score out of 10 based on studentAnswer like technical score obtained score/10`,
+
+            prompt: `Question:${text}\nStudent Answer: ${studentAnswer}\n compare student Answer with actual answer and give correct answer with Score out of 10. use this format "Score: 0/10 \n feedback:generated feedback " `,
+
             max_tokens: 3000
         })
         return (completion.data.choices[0].text);
@@ -93,10 +112,12 @@ async function callChatGPT(text,studentAnswer){
 
 app.listen(8080,async()=>{
     try {
+        await connection
         console.log("server is running");
     } catch (error) {
         console.log(error);
     }
+
 })
 
 
@@ -122,20 +143,4 @@ app.get('/study-getQuestion', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
