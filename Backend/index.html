@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
 </head>
 <body>
-    <h1>start asking question here</h1>
+    <div id="main">
+        <h1>wel-come to vitural-interiew </h1>
 
-    <form id="form">
-        <input type="text" id="prompt">
-        <button id="btn">send</button>
-    </form>
-    <h2 id="output"></h2>
+        <div id="container">
+            <h3>click on start button to start interview</h3>
+        </div>
+
+        <div id="button">
+            <button id="start">start</button>
+            <button id="end">end</button>
+        </div>
+
+        <form name="dataform" id="form">
+            <textarea type="text" class="words" id="inputtext" rows="15" column="80"></textarea>
+            <button type="button" id="startButton">Speak</button>
+            <button type="button" id="stopButton" disabled>Stop</button>
+            <button id="btn">send</button>
+        </form>
+    
+    </div>
     
 </body>
 <script src="./home.js"></script>
+
 </html>
