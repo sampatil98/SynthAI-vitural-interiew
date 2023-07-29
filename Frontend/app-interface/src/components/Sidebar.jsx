@@ -1,26 +1,32 @@
 import React, { useState, useRef } from "react";
 import Interview from "./Interview";
+import Home from "./Home";
+import logo from "./logo-png.png"
 
 const Sidebar = () => {
   // ... (previous code remains the same)
+  
+
 
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="bg-gray-800 text-white w-1/4 p-4">
-        <h1 className="text-2xl font-bold mb-4">Sidebar</h1>
-        <ul className="space-y-2">
-          <li>Interviews</li>
-          <li>Help</li>
-          <li>Feedback</li>
+      <div className="bg-gray-700 text-white w-1/5 p-12">
+        <img src={logo} alt=""/>
+        <br />
+        <ul className="space-y-5">
+          <li className='text-blue'>Progress Tracking</li>
+          <li className='text-blue'>Interview Practice</li>
+          <li className='text-blue'>Elevating Your Skills</li>
         </ul>
       </div>
 
       {/* Interview Container */}
-      <div className="flex flex-col items-center justify-center w-3/4 p-8">
+      <div className="bg-gray-900 text-white flex flex-col items-center justify-center w-4/5 p-8">
         {/* ... (Rest of the component) */}
         {/* ... (Speech Text Container, Input Box, Buttons, etc.) */}
-        <Interview />
+        {/* <Interview /> */}
+        <Home/>
       </div>
     </div>
   );

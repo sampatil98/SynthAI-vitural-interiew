@@ -10,21 +10,18 @@ import Navbar from './components/Navbar';
 import  Homepage  from './components/Homepage';
 import PostPage from './components/PostPage';
 import Feedback from './components/Feedback';
+import { AllRoutes } from './Pages/AllRoutes';
 
 
 
 function App() {
   return (
     <div className="App">
-
-    
-    
-
      <Navbar/>
-     <Homepage/>
-     <PostPage/>
-     <Feedback/>
-
+     <AllRoutes/>
+     {/* <Home/> */}
+     {/* <Interview/> */}
+     {/* <Sidebar/> */}
     </div>
   );
 }

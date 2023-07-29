@@ -57,13 +57,17 @@ const Interview= () => {
     // }
   }
   console.log(transcript)
+
+  const handleChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+    console.log(e.target.value)
+  }
   return (
-    <div className="flex gap-30%   h-screen" >
+    <div className="flex gap-5%   h-screen" >
     
 
       {/* Interview Container */}
      
-    <div className="flex items-center pl-8 justify-center h-screen">
+    <div className="flex items-center pl-10 justify-center h-screen">
       <div className="border rounded-lg p-4 w-96">
         {/* Speech Text Container */}
         <div className="bg-gray-200 p-2 rounded-lg mb-4">
@@ -72,7 +76,7 @@ const Interview= () => {
 
         {/* Input Box */}
         <div className="mb-4">
-          <input type="text" placeholder="Enter text here" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <input type="text" onChange={handleChange} placeholder="Enter text here" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
 
         {/* Start Button */}

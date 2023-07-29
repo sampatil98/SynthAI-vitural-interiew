@@ -1,14 +1,14 @@
 const links = [
-    { name: 'Open roles', href: '#' },
-    { name: 'Internship program', href: '#' },
-    { name: 'Our values', href: '#' },
-    { name: 'Meet our leadership', href: '#' },
+    { name: 'Open Page', href: '#' },
+    { name: 'Click on Get Started', href: '#' },
+    { name: 'Practice interview', href: '#' },
+    { name: 'Improve your Skills', href: '#' },
   ]
   const stats = [
-    { name: 'Practice Virtuval interview', value: 'Learn more' },
-    { name: 'Prop', value: '300+' },
-    { name: 'Hours per week', value: '40' },
-    { name: 'Paid time off', value: 'Unlimited' },
+    { name: 'Learn More', value: 'Practice interview' },
+    { name: 'Learn More', value: 'Elevating Your Skills' },
+    { name: 'Learn More', value: 'Interview Practice' },
+    { name: 'Learn More', value: 'Unlimited' },
   ]
   
   export default function PostPage() {

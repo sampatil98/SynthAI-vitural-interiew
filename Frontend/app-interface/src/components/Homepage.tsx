@@ -1,37 +1,8 @@
-// import React from 'react'
-// import "./Homepage.css"
 
-// export const Homepage = () => {
-//   return (
-//     <div >
-//         <img
-//         src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-//         alt=""
-//         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-//       />
-//        <div className='Box'>
-//          <div className='Box1'>
-//             <h1>Ace your next InterView</h1>
-//             <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Cairo&weight=700&size=23&pause=1000&width=435&lines=+Elevating+Your+Interview+Skills+Efficiently.;Personalized+Practice;Progress+Tracking;Virtual+Interview+Practice" alt="Typing SVG" /></a>
-//             <h3>Improve your communication and technical skills with private, realtime, <br /> and judgement free speech coaching on your online meetings - powered by AI </h3>
-//             <button>Let's Start</button>
-//          </div>
-//          <div className='Box2'>
-//             <img src="" alt="" />
-//          </div>
-//        </div>
-//         {/* <div className='Tech'>
-//             <h1>Interview preparation playbooks</h1>
-//             <a href=""> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--HSN807E8--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/c09kxheisxgq76e0syk1.jpg"/>
-//  </a>
-//  <a href=""> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--HSN807E8--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/c09kxheisxgq76e0syk1.jpg"/>
-//  </a>
-//  <a href=""> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--HSN807E8--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/c09kxheisxgq76e0syk1.jpg"/>
-//  </a>
-//         </div> */}
-//     </div>
-//   )
-// }
+
+import Feedback from "./Feedback";
+import PostPage from "./PostPage";
+
 
 export default function Homepage() {
     return (
@@ -63,7 +34,7 @@ export default function Homepage() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <a
-                  href="#"
+                  href="/Sidebar"
                   className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   Get started
@@ -83,7 +54,14 @@ export default function Homepage() {
               />
             </div>
           </div>
+         
         </div>
+        <div>
+            <PostPage/>
+          </div>
+          <div>
+            <Feedback/>
+          </div>
       </div>
     )
   }

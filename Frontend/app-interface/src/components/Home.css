@@ -1,14 +1,16 @@
 #main{
-    width: 70%;
+    margin-top: 10px;
+    width: 90%;
     margin: auto;
     text-align: center;
 }
 .question{
-    color: green;
+    color: rgb(231, 19, 3);
     font-size: 21px;
 }
 .ans{
-    color: black;
+    
+    color: rgb(118, 204, 19);
     font-size: 18px;
 }
 .abc{
@@ -20,28 +22,35 @@
     align-items: center;
     width: 40%;
     margin: auto;
-    margin-top: 10px;
+    margin-top: -100px;
 }
 #start{
     padding: 10px;
     border: none;
-    background-color: rgb(42, 248, 42);
+    width: 100px;
+    background-color: rgb(72, 243, 72);
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 #end{
     padding: 10px;
     border: none;
+    width: 100px;
     background-color:rgb(249, 71, 71);
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 #inputtext{
-    width: 50%;
-    height: 40px;
+    width: 60%;
+    height: 35px;
     border: 0pc;
+    background-color: cadetblue;
+    border-radius: 15px;
 }
 #btn{
     height: 40px;
     padding: 10px;
+    width: 80px;
     background-color: rgb(39, 98, 78);
     border: none;
     border-radius: 10px;
@@ -72,5 +81,15 @@
     overflow-y:auto;
     height: 500px;
     margin: auto;
-    border: 0.5px solid gray;
+    padding: 15px;
+    color: aqua;
+    border: 0.5px solid rgb(26, 228, 235);
+}
+#container div{
+    color: white;
+}
+#main h1{
+    font-size: 30px;
+    font-family: Cambria;
+    color: blue;
 }
